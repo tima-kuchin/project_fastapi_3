@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker
 from config import settings
 
 # Создание асинхронного движка
-engine = create_async_engine(settings.database_url, echo=True)  # Установи `echo=False` в продакшене
+engine = create_async_engine(settings.database_url, echo=False)
 
 # Создание фабрики асинхронных сессий
 async_session = sessionmaker(engine, class_=AsyncSession, expire_on_commit=False, autoflush=False)
