@@ -1,0 +1,17 @@
+CREATE TABLE IF NOT EXISTS Regions (
+    id INTEGER PRIMARY KEY,
+    region_name TEXT NOT NULL,
+    region_type TEXT NOT NULL
+);
+
+-- Создание таблицы Cars с внешним ключом на таблицу Regions
+CREATE TABLE IF NOT EXISTS Cars (
+    id SERIAL PRIMARY KEY,
+    license_plate TEXT NOT NULL,
+    brand TEXT NOT NULL,
+    color TEXT NOT NULL,
+    owner_name TEXT NOT NULL,
+    region_id INTEGER REFERENCES Regions(id),
+    insurance BOOLEAN NOT NULL,
+    CONSTRAINT fk_region_id FOREIGN KEY (region_id) REFERENCES Regions(id)
+);
