@@ -21,7 +21,9 @@ def write_to_log(message):
 @app.on_event('startup')
 async def startup_event():
     write_to_log('Begin')
+    pass
 
 @app.on_event('shutdown')
 async def shutdown_event():
     write_to_log('Shutdown')
+    pass
